@@ -19,8 +19,6 @@ import (
 // Concurrent execution = 5.004216349s
 
 func main() {
-
-
 	numGR := runtime.NumGoroutine()
 	fmt.Println(numGR)
 
@@ -40,14 +38,13 @@ func main() {
 	go func() {
 		for i := 0; i < 10; i++ {
 			time.Sleep(100 * time.Millisecond)
-			//fmt.Println(i)
+			fmt.Printf("the index is %d", i)
+			fmt.Println()
 		}
 
 		numGRs := runtime.NumGoroutine()
 		fmt.Println(numGRs)
 	}()
-
-	//go longAndHeavyTask()
 
 	elapsed := time.Since(now)
 
