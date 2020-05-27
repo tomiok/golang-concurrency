@@ -18,6 +18,7 @@ func main() {
 func worker(done chan bool) {
 	fmt.Println("inside de worker")
 	done <- true
+	close(done)
 }
 
 func bufferedChannel() {
