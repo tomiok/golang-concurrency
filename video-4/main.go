@@ -24,20 +24,19 @@ func channelDirectionExample() {
 	receiver := make(chan string, 1)
 	send(sender, "hello in the gateway")
 	receiveAndSend(sender, receiver)
-	msg := <- receiver
+	msg := <-receiver
 
 	fmt.Println(msg)
 }
 
-func send(sender chan <- string, msg string) {
+func send(sender chan<- string, msg string) {
 	sender <- msg
 }
 
-func receiveAndSend(sender <- chan string, receiver chan <- string) {
-	msg := <- sender
+func receiveAndSend(sender <-chan string, receiver chan<- string) {
+	msg := <-sender
 	receiver <- msg
 }
-
 
 func rangeChannelExample() {
 	c := make(chan int, 3)
